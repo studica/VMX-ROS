@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>vmxpi_ros_bringup</name>
+  <version>0.0.0</version>
+  <description>The vmxpi_ros_bringup package</description>
+
+  <maintainer email="harrisontieu@studica.com">Harrison Tieu</maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>vmxpi_ros_utils</depend>
+  <depend>vmxpi_ros_titan</depend>
+  <depend>vmxpi_ros_cobra</depend>
+  <depend>vmxpi_ros_sharp</depend>
+  <depend>vmxpi_ros_ultrasonic</depend>
+  <depend>vmxpi_ros_navx</depend>
+  <depend>vmxpi_ros_servo</depend>
+  <depend>vmxpi_ros_io</depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

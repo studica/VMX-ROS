@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>vmxpi_ros_titan</name>
+  <version>0.0.0</version>
+  <description>Titan ROS Library to communicate with HAL on VMXpi</description>
+
+  <maintainer email="harrisontieu@studica.com">Harrison Tieu</maintainer>
+  <maintainer email="frederick.kwan@studica.com">Frederick Kwan</maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>actionlib</depend>
+  <depend>vmxpi_ros</depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

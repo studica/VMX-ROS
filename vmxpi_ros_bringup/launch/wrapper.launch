@@ -1,0 +1,6 @@
+<launch>
+	<!-- <node pkg="vmxpi_ros_cam" name="opencv_node" type="opencv_node" output="screen"/> -->
+	<!-- <node pkg="vmxpi_ros_cam" name="camera_node" type="camera_node" output="screen"/> -->
+	<node pkg="vmxpi_ros_bringup" name="test_node" type="test_node" output="screen"/>
+	<!-- <node pkg="vmxpi_ros_bringup" name="main_node" type="main_node" output="screen"/> -->
+</launch>
