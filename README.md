@@ -51,7 +51,7 @@ A lot of useful information on the components used can be found at https://docs.
 
 6. Close the terminal and open a new one.
 
-7. Navigate to the work space `cd catkin_ws/src`
+7. Navigate to the catkin workspace `cd catkin_ws/src`
 
 8. Change the name of the `VMX-ROS` folder to `vmxpi_ros`
 
@@ -78,11 +78,11 @@ A lot of useful information on the components used can be found at https://docs.
 
 Package name | Description
 ------------ | -------------
-vmxpi_ros_bringup | Essentially main.cpp, this is what's used to launch the ROS node
+vmxpi_ros_bringup | Essentially a test_node.cpp (example) and main.cpp, this is what's used to launch the ROS node
 vmxpi_ros_titan | ROS for Titan motor controller
-vmxpi_ros_navx | ROS for onboard navX sensor
-vmxpi_ros_sensors | ROS for other sensors (Cobra line detector, Sharp IR sensor, Ultrasonic ping)
-vmxpi_ros_servo | ROS for servos
-vmxpi_ros_io | ROS for VMXPi pins (digital IO)
+vmxpi_ros_navx | ROS for onboard NavX sensor
+vmxpi_ros_sensors | ROS for other sensors (Cobra line detector, Sharp IR sensor, Ultrasonic Sensor)
+vmxpi_ros_servo | ROS for Servos
+vmxpi_ros_io | ROS for VMXPi pins (Digital IO)
 vmxpi_ros_cam | ROS for OpenCV and raspicam (this is only for demo)
 vmxpi_ros | Contains utilities, msg and srv files
