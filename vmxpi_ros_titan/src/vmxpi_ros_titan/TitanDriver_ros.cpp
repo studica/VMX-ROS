@@ -300,31 +300,38 @@ void TitanDriver::SetMotorStopMode(uint8_t motor, int8_t mode) {
 }
 
 /* Read the encoder count + RPM packet for each encoder and saving it
- * Byte 1-3 is encoder count, byte 4-5 is RPM */
+ * Byte 0-3 is encoder count, byte 4-5 is RPM (only for 1.2 Titan Firmware)
+ * Byte 0-3 is encoder count of the encoder flag (for 1.0 Titan Firmware)
+ * Byte 0-1 is the rpm of the motor (for 1.0 Titan Firmware) */
 void TitanDriver::GetCountRPM(int8_t motor) {
     VMXErrorCode vmxerr;
     if (!CheckCANStatus(vmxerr))
         ROS_WARN("CAN ERROR");
     
     VMXCANTimestampedMessage msg;
+    VMXCANTimestampedMessage msg2;
     static uint64_t timestamp = 0;
     static uint32_t msg_count;
     if (motor == 0) {
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::ENCODER_0_OUTPUT + deviceID, &msg, msg_count, timestamp, vmxerr);
         enc_count[motor] = msg.data[0] + (msg.data[1] << 8) + (msg.data[2] << 16) + (msg.data[3] << 24);
-        rpm[motor] = msg.data[4] + (msg.data[5] << 8);
+        ReadCANBlackboard(canrxhandles[0], TitanMessageID::RPM_0_OUTPUT + deviceID, &msg2, msg_count, timestamp, vmxerr);
+        rpm[motor] = msg.data[0] + (msg.data[1] << 8);
     } else if (motor == 1) {
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::ENCODER_1_OUTPUT + deviceID, &msg, msg_count, timestamp, vmxerr);
         enc_count[motor] = msg.data[0] + (msg.data[1] << 8) + (msg.data[2] << 16) + (msg.data[3] << 24);
-        rpm[motor] = msg.data[4] + (msg.data[5] << 8);
+        ReadCANBlackboard(canrxhandles[0], TitanMessageID::RPM_1_OUTPUT + deviceID, &msg2, msg_count, timestamp, vmxerr);
+        rpm[motor] = msg.data[0] + (msg.data[1] << 8);
     } else if (motor == 2) {
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::ENCODER_2_OUTPUT + deviceID, &msg, msg_count, timestamp, vmxerr);
         enc_count[motor] = msg.data[0] + (msg.data[1] << 8) + (msg.data[2] << 16) + (msg.data[3] << 24);
-        rpm[motor] = msg.data[4] + (msg.data[5] << 8);
+        ReadCANBlackboard(canrxhandles[0], TitanMessageID::RPM_2_OUTPUT + deviceID, &msg2, msg_count, timestamp, vmxerr);
+        rpm[motor] = msg.data[0] + (msg.data[1] << 8);
     } else if (motor == 3) {
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::ENCODER_3_OUTPUT+ deviceID, &msg, msg_count, timestamp, vmxerr);
         enc_count[motor] = msg.data[0] + (msg.data[1] << 8) + (msg.data[2] << 16) + (msg.data[3] << 24);
-        rpm[motor] = msg.data[4] + (msg.data[5] << 8);
+        ReadCANBlackboard(canrxhandles[0], TitanMessageID::RPM_3_OUTPUT + deviceID, &msg2, msg_count, timestamp, vmxerr);
+        rpm[motor] = msg.data[0] + (msg.data[1] << 8);
     }
 }
 
