@@ -316,22 +316,22 @@ void TitanDriver::GetCountRPM(int8_t motor) {
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::ENCODER_0_OUTPUT + deviceID, &msg, msg_count, timestamp, vmxerr);
         enc_count[motor] = msg.data[0] + (msg.data[1] << 8) + (msg.data[2] << 16) + (msg.data[3] << 24);
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::RPM_0_OUTPUT + deviceID, &msg2, msg_count, timestamp, vmxerr);
-        rpm[motor] = msg.data[0] + (msg.data[1] << 8);
+        rpm[motor] = msg2.data[0] + (msg2.data[1] << 8);
     } else if (motor == 1) {
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::ENCODER_1_OUTPUT + deviceID, &msg, msg_count, timestamp, vmxerr);
         enc_count[motor] = msg.data[0] + (msg.data[1] << 8) + (msg.data[2] << 16) + (msg.data[3] << 24);
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::RPM_1_OUTPUT + deviceID, &msg2, msg_count, timestamp, vmxerr);
-        rpm[motor] = msg.data[0] + (msg.data[1] << 8);
+        rpm[motor] = msg2.data[0] + (msg2.data[1] << 8);
     } else if (motor == 2) {
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::ENCODER_2_OUTPUT + deviceID, &msg, msg_count, timestamp, vmxerr);
         enc_count[motor] = msg.data[0] + (msg.data[1] << 8) + (msg.data[2] << 16) + (msg.data[3] << 24);
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::RPM_2_OUTPUT + deviceID, &msg2, msg_count, timestamp, vmxerr);
-        rpm[motor] = msg.data[0] + (msg.data[1] << 8);
+        rpm[motor] = msg2.data[0] + (msg2.data[1] << 8);
     } else if (motor == 3) {
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::ENCODER_3_OUTPUT+ deviceID, &msg, msg_count, timestamp, vmxerr);
         enc_count[motor] = msg.data[0] + (msg.data[1] << 8) + (msg.data[2] << 16) + (msg.data[3] << 24);
         ReadCANBlackboard(canrxhandles[0], TitanMessageID::RPM_3_OUTPUT + deviceID, &msg2, msg_count, timestamp, vmxerr);
-        rpm[motor] = msg.data[0] + (msg.data[1] << 8);
+        rpm[motor] = msg2.data[0] + (msg2.data[1] << 8);
     }
 }
 
